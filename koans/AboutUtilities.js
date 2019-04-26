@@ -73,31 +73,32 @@ describe("About Utilities", function() { // comment
   it("should determine types using $.type", function() {
     var num = new Number(3);
     var arr = [];
-    
+    // $.type() returns the data type of an element as a string, equivalent to typeof operator in vanilla JS
     var type1 = $.type(num);
     var type2 = $.type(arr);
     
-    expect(type1).toEqual(__);
-    expect(type2).toEqual(__);
+    expect(type1).toEqual('number');
+    expect(type2).toEqual('array');
   });
 
   it("should test for array type using $.isArray", function() {
     var array = [1, "two", 3];
     var object = { property: "value" };
-    
+    // $.isArray() tests if an element is an array, and returns boolean true or false
     var isArrayForArray = $.isArray(array);
     var isArrayForObject = $.isArray(object);
     
-    expect(isArrayForArray).toEqual(__);
-    expect(isArrayForObject).toEqual(__);
+    expect(isArrayForArray).toEqual(true);
+    expect(isArrayForObject).toEqual(false);
   });
   
   it("should check for empty objects using $.isEmptyObject", function() {
+    // $.isEmptyObject() checks if an object is empty or not, self-explanatory.  returns a boolean. 
     var isEmpty = $.isEmptyObject({});
     var isNotEmpty = $.isEmptyObject({name: "name", value: "value"});
     
-    expect(isEmpty).toEqual(__);
-    expect(isNotEmpty).toEqual(__);    
+    expect(isEmpty).toEqual(true);
+    expect(isNotEmpty).toEqual(false);    
   });
   
   it("should detect function types using $.isFunction", function() {
@@ -108,12 +109,12 @@ describe("About Utilities", function() { // comment
         return weight;
       }
     };
-
+    // $.isFunction() checks to see if element is a function, returns boolean
     var isFunction1 = $.isFunction(object.name);
     var isFunction2 = $.isFunction(object.getWeight);
     
-    expect(isFunction1).toEqual(__);
-    expect(isFunction2).toEqual(__);
+    expect(isFunction1).toEqual(false);
+    expect(isFunction2).toEqual(true);
   });
   
   it("should perform translations on each array element returning a new array using $.map", function() {
