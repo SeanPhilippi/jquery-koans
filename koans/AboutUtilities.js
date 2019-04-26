@@ -6,46 +6,51 @@ describe("About Utilities", function() { // comment
   it("should iterate an array with $.each", function() {
     var result = 0;
     var array = ["one", 2, null];
-    
+    // $.each() takes an array and a callback that takes an index and value and calls that function on each 
+    // item of the array
     $.each(array, function(index, value) {
       if(index === 1) {
         result = value;
       }
     });
     
-    expect(result).toEqual(__);
+    expect(result).toEqual(2);
   });
   
   it("should iterate an object literal with $.each", function() {
     var object = { name: "Swedish Chef", age: 2.5 };
     var actualValue = 0;
-    
+    // $.each() can take an object as well, in which case, the callback will take a key and value and look
+    // an action for each key
     $.each(object, function(key, value) {    
       if(key === "name") {
         actualValue = value;
       }
     });
     
-    expect(actualValue).toEqual(__);
+    expect(actualValue).toEqual('Swedish Chef');
   });
   
   it("should merge two objects with $.extend", function() {    
     var object1 = { animal: "cardinal", color: "red" };
     var object2 = { firstName: "woody", lastName: "woodpecker" };
-    
+    // $.extend() essentially allows you to merge multiple object with the first object passed in
+    // can take multiple objects, kind of like a reduce function for objects, only it merges only, doesn't
+    // take a callback, just however many objects you'd like to merge into the first object
     var result = $.extend({}, object1, object2);
     
-    expect(result.lastName).toEqual(__);
+    expect(result.lastName).toEqual('woodpecker');
   });
   
   it("should filter arrays with $.grep", function() {
     var array = [1, 2, 3, 4, 5, 6, 7, 8];
-    
+    // $.grep() returns a new array that passes the testing callback function, callback must return true
+    // callback takes a value and index as parameters in that order.  the first argument for grep is the array
     array = $.grep(array, function(value, index) {
       return value > 5;
     });
     
-    expect(array).toEqual(__);
+    expect(array).toEqual([6, 7, 8]);
   });
   
   it("should find elements in array with $.inArray", function() {
