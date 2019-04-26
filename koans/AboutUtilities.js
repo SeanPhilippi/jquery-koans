@@ -57,14 +57,17 @@ describe("About Utilities", function() { // comment
     var actualValue = 0;
     
     var array = ["Pie", 42, "Cake", "BoogieMonster"];
-    
+    // $.inArray() takes 2 parameters, the value you are looking for, and the array you are searching
+    // in, and it will return the index.  basically the same as indexOf()
     var pieInArrayResult = $.inArray("Pie", array);
     var boogieMonsterInArrayResult = $.inArray("BoogieMonster", array);
     var notFoundInArrayResult = $.inArray(98765, array);
+    var findCake = $.inArray("Cake", array); // * my own attempt at a test, finish later?
     
-    expect(pieInArrayResult).toEqual(__);
-    expect(boogieMonsterInArrayResult).toEqual(__);
-    expect(notFoundInArrayResult).toEqual(__);
+    expect(pieInArrayResult).toEqual(0);
+    expect(boogieMonsterInArrayResult).toEqual(3);
+    expect(notFoundInArrayResult).toEqual(-1);
+    expect(findCake).toEqual(2);  // * my own attempt at a test
   });
   
   it("should determine types using $.type", function() {
