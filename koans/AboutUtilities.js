@@ -124,8 +124,8 @@ describe("About Utilities", function() { // comment
       return element.toUpperCase();
     });
     
-    expect(mapped).toEqual(__);
-    expect($.type(mapped)).toEqual(__);
+    expect(mapped).toEqual(["A", "B", "C", "D"]);
+    expect($.type(mapped)).toEqual('array');
   });
   
   it("should parse json using $.parseJSON", function() {
@@ -133,14 +133,14 @@ describe("About Utilities", function() { // comment
     
     var parsedJsonObject = $.parseJSON(jsonString);
     
-    expect(parsedJsonObject.name).toEqual(__);
-    expect(parsedJsonObject.age).toEqual(__);
+    expect(parsedJsonObject.name).toEqual('animal');
+    expect(parsedJsonObject.age).toEqual(2);
   });
   
   it("should trim strings using $.trim", function() {
     var string = "   Internet Explorer does not have a native implementation of trim, so this jquery method is handy     ";
     
     var trimmed = $.trim(string);
-    expect(trimmed).toEqual(__);
+    expect(trimmed).toEqual("Internet Explorer does not have a native implementation of trim, so this jquery method is handy");
   });
 });
